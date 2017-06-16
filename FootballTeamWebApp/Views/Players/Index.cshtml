@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FootballTeamWebApp.Models.Player>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Players List</h2>
+
+<p>
+    @Html.ActionLink("Add New Player", "Create")
+</p>
+<p>
+    @Html.ActionLink("Sort the Player by Name", "SortByName")
+</p>
+<p>
+    @Html.ActionLink("Sort the Player by Born Date", "SortByBornDate")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>Full name</th>
+        <th>Born date</th>
+        <th>Personal Id Number</th>
+        <th>Birth place</th>
+        <th>Player number</th>
+        <th>Height</th>
+        <th>Salary</th>
+        <th>Operations</th>
+    </tr>
+
+@foreach (var players in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => players.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => players.BornDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => players.PersonalID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => players.BirthPlace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => players.PlayerNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => players.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => players.Height)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=players.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=players.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=players.ID })
+        </td>
+    </tr>
+}
+
+</table>
